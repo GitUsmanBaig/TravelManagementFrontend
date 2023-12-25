@@ -1,13 +1,16 @@
-import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 
 import TravelAgencyNavbar from "./TravelAgencyPanel/Components/TravelAgencyNavbar";
 import TravelAgencyHome from "./TravelAgencyPanel/Pages/TravelAgencyHome";
 //import TravelAgencySignup from "./TravelAgencyPanel/Pages/TravelAgencySignup";
 
-import UserLogin from "./TravellerPanel/UserLogin";
-import UserDashboard from "./TravellerPanel/UserDashboard";
 import HotelPackage from "./TravellerPanel/HotelPackage";
+import UpdateCredentials from "./TravellerPanel/UpdateCredentials";
+import UserBookings from "./TravellerPanel/UserBookings";
+import UserDashboard from "./TravellerPanel/UserDashboard";
+import UserLogin from "./TravellerPanel/UserLogin";
 import UserProfile from "./TravellerPanel/UserProfile";
+import UserSignup from "./TravellerPanel/UserSignup";
 
 function App() {
   const TravelAgencyOutlet = () => {
@@ -31,10 +34,13 @@ function App() {
             <Route path="login" element={<div>Login</div>} />
           </Route>
 
-          <Route path="/user/login" element={<UserLogin />}/>
+          <Route path="/user/signup" element={<UserSignup />} />
+          <Route path="/user/login" element={<UserLogin />} />
           <Route path="/user/dashboard" element={<UserDashboard />} />
           <Route path="/user/hotelofpackage/:packageId" element={<HotelPackage />} />
           <Route path="/user/profile" element={<UserProfile />} />
+          <Route path="/user/update_profile" element={<UpdateCredentials />} />
+          <Route path="/user/bookings" element={<UserBookings />} />
 
         </Routes>
       </BrowserRouter>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './UserProfile.css';
 
 const UserProfile = () => {
     const [userProfile, setUserProfile] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUserProfile = async () => {
@@ -30,6 +32,10 @@ const UserProfile = () => {
         fetchUserProfile();
     }, []);
 
+    const handleUpdateClick = () => {
+        navigate('/user/update_profile');
+    };
+
     if (isLoading) return <div className="loading">Loading...</div>;
     if (error) return <div className="error-message">{error}</div>;
 
@@ -43,9 +49,11 @@ const UserProfile = () => {
                     <p><strong>CNIC:</strong> {userProfile.CNIC}</p>
                     <p><strong>Contact:</strong> {userProfile.contact}</p>
                     <p><strong>Preferences:</strong> {userProfile.preferences.join(', ')}</p>
+                    <button onClick={handleUpdateClick}>Update Credentials</button>
                     {/* Additional user info can be added here */}
                 </div>
             )}
+
         </div>
     );
 };
