@@ -4,6 +4,10 @@ import TravelAgencyNavbar from "./TravelAgencyPanel/Components/TravelAgencyNavba
 import TravelAgencyHome from "./TravelAgencyPanel/Pages/TravelAgencyHome";
 import TravelAgencySignup from "./TravelAgencyPanel/Pages/TravelAgencySignup";
 
+import BookingHistory from "./TravellerPanel/BookingHistory";
+import FeedbackReceived from "./TravellerPanel/FeedbackReceived";
+import FeedbackSent from "./TravellerPanel/FeedbackSent";
+import ForgotPassword from "./TravellerPanel/ForgotPassword";
 import HotelPackage from "./TravellerPanel/HotelPackage";
 import UpdateCredentials from "./TravellerPanel/UpdateCredentials";
 import UserBookings from "./TravellerPanel/UserBookings";
@@ -11,15 +15,12 @@ import UserDashboard from "./TravellerPanel/UserDashboard";
 import UserLogin from "./TravellerPanel/UserLogin";
 import UserProfile from "./TravellerPanel/UserProfile";
 import UserSignup from "./TravellerPanel/UserSignup";
-import ForgotPassword from "./TravellerPanel/ForgotPassword";
-import BookingHistory from "./TravellerPanel/BookingHistory";
-import FeedbackSent from "./TravellerPanel/FeedbackSent";
 
 
-import AdminLogin from "./SuperAdminPanel/Components/Login";
 import AdminDashboard from "./SuperAdminPanel/Components/AdminDashboard";
-import AdminSignup from "./SuperAdminPanel/Components/Signup";
+import AdminLogin from "./SuperAdminPanel/Components/Login";
 import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
+import AdminSignup from "./SuperAdminPanel/Components/Signup";
 
 function App() {
   const TravelAgencyOutlet = () => {
@@ -53,11 +54,12 @@ function App() {
           <Route path="/user/forgotpassword" element={<ForgotPassword />} />
           <Route path="/user/booking-history" element={<BookingHistory />} />
           <Route path="/user/feedbacksSent" element={<FeedbackSent />} />
+          <Route path="/user/feedbacksReceived" element={<FeedbackReceived />} />
 
-          <Route path = "/admin/login" element={<AdminLogin />} />
-          <Route path = "/admin/admin-dashboard" element={<AdminDashboard />} />
-          <Route path = "/admin/register" element={<AdminSignup />} />
-          <Route path = "/admin/manage-users" element={<ManageUsers />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/register" element={<AdminSignup />} />
+          <Route path="/admin/manage-users" element={<ManageUsers />} />
 
 
         </Routes>

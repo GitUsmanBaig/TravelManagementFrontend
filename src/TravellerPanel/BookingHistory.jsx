@@ -82,7 +82,7 @@ const BookingHistory = () => {
     const handleSendFeedback = async (bookingId) => {
         try {
             const response = await fetch(`http://localhost:3000/user/addComplaint/${bookingId}`, {
-                method: 'PUT',
+                method: 'POST',
                 credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
