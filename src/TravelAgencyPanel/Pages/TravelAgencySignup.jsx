@@ -50,9 +50,9 @@ const Signup = () => {
   const [image, setImage] = useState();
 
   const handleFileChange = event => {
-    console.log(file);
+    //console.log(file);
     setFile(event.target.files[0]);
-    console.log(file);
+    //console.log(file);
   };
 
   const {
