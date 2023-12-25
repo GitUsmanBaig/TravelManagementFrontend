@@ -1,6 +1,6 @@
 // TravellerPanel/Pages/UserLogin.jsx
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './UserLogin.css'; // Make sure the CSS file is in the same directory
 
 const UserLogin = () => {
@@ -53,6 +53,26 @@ const UserLogin = () => {
                     required
                 />
                 <button type="submit">Login</button>
+                <p>Dont have an account?
+                    <Link to="/user/signup"
+                        style={{
+                            textDecoration: 'none',
+                            color: 'blue',
+                            marginLeft: '10px'
+                        }}>
+                        Signup
+                    </Link>
+                </p>
+                <p>Forgot Password?
+                    <Link to="/user/forgotpassword"
+                        style={{
+                            textDecoration: 'none',
+                            color: 'blue',
+                            marginLeft: '10px'
+                        }}>
+                        Click here
+                    </Link>
+                </p>
             </form>
         </div>
     );
