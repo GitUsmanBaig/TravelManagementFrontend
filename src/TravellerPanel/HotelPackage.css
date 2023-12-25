@@ -1,19 +1,89 @@
-/* TravellerPanel/Pages/HotelPackage.css */
-.hotel-package-container {
+.hotel-package-page {
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 20px;
+    background-color: #f8f9fa;
 }
 
-.hotel-package-container h2,
-.hotel-package-container h3 {
-    margin-bottom: 0.5em;
+.hotel-package-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.hotel-info .hotel-image {
+.package-info-section,
+.hotel-info-section {
+    margin-bottom: 20px;
+}
+
+.hotel-images {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.hotel-image {
+    border-radius: 8px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.booking-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+}
+
+.booking-section,
+.confirmation-section {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.booking-label,
+.confirmation-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #495057;
+}
+
+.booking-input,
+.confirmation-input {
     width: 100%;
-    height: auto;
-    margin-top: 10px;
+    padding: 10px;
     margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
 }
+
+.booking-button,
+.confirmation-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.booking-button:hover,
+.confirmation-button:hover {
+    background-color: #0056b3;
+}
+
+.loading,
+.error-message {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Add any additional styles as needed */

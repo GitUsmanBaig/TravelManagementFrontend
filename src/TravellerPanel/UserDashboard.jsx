@@ -70,10 +70,10 @@ const UserDashboard = () => {
     return (
         <>
             <nav className="navbar">
-                <Link to="/profile">Profile</Link>
-                <Link to="/bookings">Bookings</Link>
-                <Link to="/booking-history">Booking History</Link>
-                <Link to="/feedbacks">Feedbacks</Link>
+                <Link to="/user/profile">Profile</Link>
+                <Link to="/user/bookings">Bookings</Link>
+                <Link to="/user/booking-history">Booking History</Link>
+                <Link to="/user/feedbacks">Feedbacks</Link>
                 <button onClick={handleLogout}>Logout</button>
             </nav>
             <div className="dashboard-container">

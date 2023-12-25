@@ -7,6 +7,7 @@ import TravelAgencyHome from "./TravelAgencyPanel/Pages/TravelAgencyHome";
 import UserLogin from "./TravellerPanel/UserLogin";
 import UserDashboard from "./TravellerPanel/UserDashboard";
 import HotelPackage from "./TravellerPanel/HotelPackage";
+import UserProfile from "./TravellerPanel/UserProfile";
 
 function App() {
   const TravelAgencyOutlet = () => {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/user/login" element={<UserLogin />}/>
           <Route path="/user/dashboard" element={<UserDashboard />} />
           <Route path="/user/hotelofpackage/:packageId" element={<HotelPackage />} />
+          <Route path="/user/profile" element={<UserProfile />} />
 
         </Routes>
       </BrowserRouter>

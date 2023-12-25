@@ -101,60 +101,67 @@ const HotelPackage = () => {
         }
     };
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (isLoading) return <div className="loading">Loading...</div>;
+    if (error) return <div className="error-message">Error: {error}</div>;
 
     return (
         <div className="hotel-package-container">
-            {packageInfo && (
-                <>
-                    <h2>{packageInfo.name}</h2>
-                    <p>{packageInfo.description}</p>
-                    {/* Additional package details here */}
-                </>
-            )}
+            <div className="hotel-package-content">
+                {packageInfo && (
+                    <div className="package-info-section">
+                        <h2 className="package-title">{packageInfo.name}</h2>
+                        <p className="package-description">{packageInfo.description}</p>
+                        {/* Additional package details here */}
+                    </div>
+                )}
 
-            {hotel && (
-                <div className="hotel-info">
-                    <h3>Hotel: {hotel.name}</h3>
-                    {hotel.imagePaths.map((path, index) => (
-                        <img key={index} src={path} alt={`Hotel ${hotel.name}`} className="hotel-image" />
-                    ))}
-                    <p>{hotel.description}</p>
-                    {/* Additional hotel details here */}
+                {hotel && (
+                    <div className="hotel-info-section">
+                        <h3 className="hotel-name">Hotel: {hotel.name}</h3>
+                        <div className="hotel-images">
+                            {hotel.imagePaths.map((path, index) => (
+                                <img key={index} src={path} alt={`Hotel ${hotel.name}`} className="hotel-image" />
+                            ))}
+                        </div>
+                        <p className="hotel-description">{hotel.description}</p>
+                        {/* Additional hotel details here */}
+                    </div>
+                )}
+
+                <div className="booking-controls">
+                    <div className="booking-section">
+                        <label htmlFor="noOfPersons" className="booking-label">
+                            Number of Persons:
+                            <input
+                                type="number"
+                                id="noOfPersons"
+                                className="booking-input"
+                                value={noOfPersons}
+                                onChange={(e) => setNoOfPersons(e.target.value)}
+                                min="1"
+                            />
+                        </label>
+                        <button className="booking-button" onClick={handleBooking}>Book Package</button>
+                    </div>
+
+                    {isBookingSuccessful && (
+                        <div className="confirmation-section">
+                            <label htmlFor="confirmationCode" className="confirmation-label">
+                                Confirmation Code:
+                                <input
+                                    type="text"
+                                    id="confirmationCode"
+                                    className="confirmation-input"
+                                    value={confirmationCode}
+                                    onChange={(e) => setConfirmationCode(e.target.value)}
+                                />
+                            </label>
+                            <button className="confirmation-button" onClick={handleConfirmBooking}>Confirm Booking</button>
+                        </div>
+                    )}
                 </div>
-            )}
-
-            <div className="booking-section">
-                <label htmlFor="noOfPersons">
-                    Number of Persons:
-                    <input
-                        type="number"
-                        id="noOfPersons"
-                        value={noOfPersons}
-                        onChange={(e) => setNoOfPersons(e.target.value)}
-                        min="1"
-                    />
-                </label>
-                <button onClick={handleBooking}>Book Package</button>
+                {error && <p className="error-message">{error}</p>}
             </div>
-
-            {isBookingSuccessful && (
-                <div className="confirmation-section">
-                    <label htmlFor="confirmationCode">
-                        Confirmation Code:
-                        <input
-                            type="text"
-                            id="confirmationCode"
-                            value={confirmationCode}
-                            onChange={(e) => setConfirmationCode(e.target.value)}
-                        />
-                    </label>
-                    <button onClick={handleConfirmBooking}>Confirm Booking</button>
-                </div>
-            )}
-
-            {error && <p className="error-message">{error}</p>}
         </div>
     );
 
