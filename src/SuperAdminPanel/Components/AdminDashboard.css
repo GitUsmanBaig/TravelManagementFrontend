@@ -1,0 +1,58 @@
+/* Main layout styles */
+.admin-dashboard {
+    font-family: 'Arial', sans-serif;
+    padding-left: 250px; /* Same as sidebar width */
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    transition: all 0.3s;
+}
+
+/* Header Styles */
+.admin-dashboard h1 {
+    color: #1DA1F2; /* Twitter blue */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Counter Styles */
+.counters {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.counters div {
+    background-color: #1f2937; /* Dark grey background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.counters h3 {
+    color: #1DA1F2; /* Twitter blue */
+    margin-bottom: 10px;
+}
+
+.counters p {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+/* Chart Container Styles */
+.chart-container {
+    background-color: #1f2937; /* Dark grey background */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chart {
+    background-color: #1f2937; /* Dark grey background */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Sidebar styles are assumed to be defined within Sidebar.css or similar */

@@ -9,6 +9,12 @@ import UserDashboard from "./TravellerPanel/UserDashboard";
 import HotelPackage from "./TravellerPanel/HotelPackage";
 import UserProfile from "./TravellerPanel/UserProfile";
 
+
+import AdminLogin from "./SuperAdminPanel/Components/Login";
+import AdminDashboard from "./SuperAdminPanel/Components/AdminDashboard";
+import AdminSignup from "./SuperAdminPanel/Components/Signup";
+import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
+
 function App() {
   const TravelAgencyOutlet = () => {
     return (
@@ -35,6 +41,12 @@ function App() {
           <Route path="/user/dashboard" element={<UserDashboard />} />
           <Route path="/user/hotelofpackage/:packageId" element={<HotelPackage />} />
           <Route path="/user/profile" element={<UserProfile />} />
+
+          <Route path = "/admin/login" element={<AdminLogin />} />
+          <Route path = "/admin/admin-dashboard" element={<AdminDashboard />} />
+          <Route path = "/admin/register" element={<AdminSignup />} />
+          <Route path = "/admin/manage-users" element={<ManageUsers />} />
+
 
         </Routes>
       </BrowserRouter>
