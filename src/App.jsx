@@ -13,6 +13,7 @@ import UserProfile from "./TravellerPanel/UserProfile";
 import UserSignup from "./TravellerPanel/UserSignup";
 import ForgotPassword from "./TravellerPanel/ForgotPassword";
 import BookingHistory from "./TravellerPanel/BookingHistory";
+import FeedbackSent from "./TravellerPanel/FeedbackSent";
 
 function App() {
   const TravelAgencyOutlet = () => {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/user/bookings" element={<UserBookings />} />
           <Route path="/user/forgotpassword" element={<ForgotPassword />} />
           <Route path="/user/booking-history" element={<BookingHistory />} />
+          <Route path="/user/feedbacksSent" element={<FeedbackSent />} />
 
         </Routes>
       </BrowserRouter>

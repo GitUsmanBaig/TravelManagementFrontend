@@ -91,7 +91,7 @@ const UserDashboard = () => {
                 <Link to="/user/profile">Profile</Link>
                 <Link to="/user/bookings">Bookings</Link>
                 <Link to="/user/booking-history">Booking History</Link>
-                <Link to="/user/feedbacks">Feedbacks</Link>
+                <Link to="/user/feedbacksSent">Feedbacks</Link>
                 <button onClick={handleLogout}>Logout</button>
             </nav>
             <div className="dashboard-container">
