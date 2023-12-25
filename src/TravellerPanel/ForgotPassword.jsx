@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './ForgotPassword.css';
 
 const ForgotPassword = () => {
@@ -46,6 +47,17 @@ const ForgotPassword = () => {
                     required
                 />
                 <button type="submit">Recover Email</button>
+                <p>
+                    Back to
+                    <Link to="/user/login"
+                        style={{
+                            textDecoration: 'none',
+                            color: 'blue',
+                            marginLeft: '5px'
+                        }}>
+                    Login Page
+                    </Link>
+                </p>
                 {message && <p>{message}</p>}
             </form>
         </div>

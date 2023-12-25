@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './UserSignup.css';
 
 const UserSignup = () => {
@@ -76,6 +77,17 @@ const UserSignup = () => {
                 </label>
 
                 <button type="submit">Signup</button>
+                <p>
+                    Already have an account?
+                    <Link to="/user/login"
+                        style={{
+                            textDecoration: 'none',
+                            color: 'blue',
+                            marginLeft: '10px'
+                        }}>
+                        Login
+                    </Link>
+                </p>
                 {message && <p>{message}</p>}
             </form>
         </div>
