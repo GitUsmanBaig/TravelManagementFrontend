@@ -12,6 +12,10 @@ const UserSignup = () => {
     });
     const [message, setMessage] = useState('');
 
+    const preferenceOptions = [
+        "Adventure", "Family", "Honeymoon", "Religious", "Wildlife", "Group", "Solo", "Friends", "Summer", "Winter", "Spring", "Autumn"
+    ];
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData(prevFormData => ({
@@ -33,7 +37,7 @@ const UserSignup = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/user/signup', {
+            const response = await fetch('http://localhost:3000/user/signup_user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -62,10 +66,12 @@ const UserSignup = () => {
                 <input type="text" name="CNIC" value={formData.CNIC} onChange={handleChange} placeholder="CNIC" />
                 <input type="text" name="contact" value={formData.contact} onChange={handleChange} placeholder="Contact" />
 
-                <label>
+                <label className="preferences-label">
                     Preferences:
-                    <select multiple value={formData.preferences} onChange={handlePreferenceChange}>
-                        {/* Add your preference options here */}
+                    <select multiple name="preferences" value={formData.preferences} onChange={handlePreferenceChange} className="preferences-select">
+                        {preferenceOptions.map(option => (
+                            <option key={option} value={option}>{option}</option>
+                        ))}
                     </select>
                 </label>
 
