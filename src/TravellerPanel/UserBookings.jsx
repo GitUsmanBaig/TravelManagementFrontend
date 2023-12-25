@@ -9,6 +9,7 @@ const UserBookings = () => {
     const [updatedNoOfPersons, setUpdatedNoOfPersons] = useState(0);
     const [confirmationCode, setConfirmationCode] = useState('');
 
+    
     const fetchBookings = async () => {
         setIsLoading(true);
         try {

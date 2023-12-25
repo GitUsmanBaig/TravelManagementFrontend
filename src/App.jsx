@@ -12,6 +12,7 @@ import UserLogin from "./TravellerPanel/UserLogin";
 import UserProfile from "./TravellerPanel/UserProfile";
 import UserSignup from "./TravellerPanel/UserSignup";
 import ForgotPassword from "./TravellerPanel/ForgotPassword";
+import BookingHistory from "./TravellerPanel/BookingHistory";
 
 function App() {
   const TravelAgencyOutlet = () => {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/user/update_profile" element={<UpdateCredentials />} />
           <Route path="/user/bookings" element={<UserBookings />} />
           <Route path="/user/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/user/booking-history" element={<BookingHistory />} />
 
         </Routes>
       </BrowserRouter>
