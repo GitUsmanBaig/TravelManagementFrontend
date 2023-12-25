@@ -1,0 +1,19 @@
+/* TravellerPanel/Pages/HotelPackage.css */
+.hotel-package-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.hotel-package-container h2,
+.hotel-package-container h3 {
+    margin-bottom: 0.5em;
+}
+
+.hotel-info .hotel-image {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

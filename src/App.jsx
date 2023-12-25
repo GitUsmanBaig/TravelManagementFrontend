@@ -4,6 +4,10 @@ import TravelAgencyNavbar from "./TravelAgencyPanel/Components/TravelAgencyNavba
 import TravelAgencyHome from "./TravelAgencyPanel/Pages/TravelAgencyHome";
 //import TravelAgencySignup from "./TravelAgencyPanel/Pages/TravelAgencySignup";
 
+import UserLogin from "./TravellerPanel/UserLogin";
+import UserDashboard from "./TravellerPanel/UserDashboard";
+import HotelPackage from "./TravellerPanel/HotelPackage";
+
 function App() {
   const TravelAgencyOutlet = () => {
     return (
@@ -14,6 +18,8 @@ function App() {
     );
   };
 
+
+
   return (
     <>
       <BrowserRouter>
@@ -23,6 +29,11 @@ function App() {
             <Route path="register" element={<div>Signup</div>} />
             <Route path="login" element={<div>Login</div>} />
           </Route>
+
+          <Route path="/user/login" element={<UserLogin />}/>
+          <Route path="/user/dashboard" element={<UserDashboard />} />
+          <Route path="/user/hotelofpackage/:packageId" element={<HotelPackage />} />
+
         </Routes>
       </BrowserRouter>
     </>
