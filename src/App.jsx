@@ -15,6 +15,12 @@ import ForgotPassword from "./TravellerPanel/ForgotPassword";
 import BookingHistory from "./TravellerPanel/BookingHistory";
 import FeedbackSent from "./TravellerPanel/FeedbackSent";
 
+
+import AdminLogin from "./SuperAdminPanel/Components/Login";
+import AdminDashboard from "./SuperAdminPanel/Components/AdminDashboard";
+import AdminSignup from "./SuperAdminPanel/Components/Signup";
+import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
+
 function App() {
   const TravelAgencyOutlet = () => {
     return (
@@ -47,6 +53,12 @@ function App() {
           <Route path="/user/forgotpassword" element={<ForgotPassword />} />
           <Route path="/user/booking-history" element={<BookingHistory />} />
           <Route path="/user/feedbacksSent" element={<FeedbackSent />} />
+
+          <Route path = "/admin/login" element={<AdminLogin />} />
+          <Route path = "/admin/admin-dashboard" element={<AdminDashboard />} />
+          <Route path = "/admin/register" element={<AdminSignup />} />
+          <Route path = "/admin/manage-users" element={<ManageUsers />} />
+
 
         </Routes>
       </BrowserRouter>
