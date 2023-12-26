@@ -140,7 +140,7 @@ const Login = () => {
                     border : "none",
                 }}
             >
-                <Canvas camera={{ position: [0, 2, 4], far: 10000 }}>
+                <Canvas camera={{ position: [0, 2, 4], far: 1000 }}>
                     <ambientLight />
                     <Suspense fallback={null}>
                         <Computer />

@@ -96,9 +96,26 @@ button:hover {
     margin: 10px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .main-container {
         flex-direction: column;
+    }
+
+    .canvas-container,
+    .login-container {
+        width: 80%;
+        max-width: 500px;
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        gap: 10px;
     }
 
     .canvas-container,
@@ -106,4 +123,20 @@ button:hover {
         width: 90%;
         max-width: none;
     }
+
+    .modal-content {
+        margin: 20% auto;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    input[type="password"],
+    button {
+        padding: 15px;
+    }
+
+    .close {
+        font-size: 32px;
+    }
 }
+
