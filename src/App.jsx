@@ -26,8 +26,12 @@ import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
 import AdminManageQueries from "./SuperAdminPanel/Components/ManageQueries";
 import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
 import AdminSignup from "./SuperAdminPanel/Components/Signup";
+<<<<<<< HEAD
 import AdminApproval from "./SuperAdminPanel/Components/Approval";
 import AdminHotelOwnerManagement from "./SuperAdminPanel/Components/ManageHotelOwners";
+=======
+// import AdminIndividualTravelAgency from "./SuperAdminPanel/Components/IndividualTravelAgency";
+>>>>>>> 350509d9e22a1bb8563e57df1ecd5901503b07fc
 
 
 function App() {
@@ -41,32 +45,54 @@ function App() {
   };
 
   const RootforPage = () => {
+    const buttonStyle = {
+      margin: '10px',
+      padding: '10px 20px',
+      background: '#007bff',
+      color: 'white',
+      border: 'none',
+      borderRadius: '5px',
+      cursor: 'pointer',
+    };
+
+    const containerStyle = {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100vh',
+    };
+
+    const headingStyle = {
+      color: '#333',
+      marginBottom: '20px',
+    };
+
     return (
-      <>
-        <div>
-          <h1>Root for Page</h1>
-          <button>
-            <Link to="/admin/login">Super Admin Panel</Link>
-          </button>
-          <button>
-            <Link to="/travel-agency">
-              Travel Agency Panel
-            </Link>
-          </button>
-          <button>
-            <Link to="/user/login">
-              Traveller Panel
-            </Link>
-          </button>
-          <button>
-            <Link to="/hotel/login">
-              Hotel Owner Panel
-            </Link>
-          </button>
-        </div>
-      </>
+      <div style={containerStyle}>
+        <h1 style={headingStyle}>Root for Page</h1>
+        <button style={buttonStyle}>
+          <Link to="/admin/login" style={{ color: 'white', textDecoration: 'none' }}>Super Admin Panel</Link>
+        </button>
+        <button style={buttonStyle}>
+          <Link to="/travel-agency" style={{ color: 'white', textDecoration: 'none' }}>
+            Travel Agency Panel
+          </Link>
+        </button>
+        <button style={buttonStyle}>
+          <Link to="/user/login" style={{ color: 'white', textDecoration: 'none' }}>
+            Traveller Panel
+          </Link>
+        </button>
+        <button style={buttonStyle}>
+          <Link to="/hotel/login" style={{ color: 'white', textDecoration: 'none' }}>
+            Hotel Owner Panel
+          </Link>
+        </button>
+      </div>
     );
   }
+
 
 
   return (
@@ -100,9 +126,13 @@ function App() {
           <Route path="/admin/manage-packages" element={<AdminManagePackage />} />
           <Route path="/admin/manage-agencies" element={<AdminManageAgencies />} />
           <Route path="/admin/manage-queries" element={<AdminManageQueries />} />
+<<<<<<< HEAD
           <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency/>} />
           <Route path="/admin/approvals" element={<AdminApproval />} />
           <Route path="/admin/hotel-owner-management" element={<AdminHotelOwnerManagement />} />
+=======
+          <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency />} />
+>>>>>>> 350509d9e22a1bb8563e57df1ecd5901503b07fc
         </Routes>
       </BrowserRouter>
     </>
