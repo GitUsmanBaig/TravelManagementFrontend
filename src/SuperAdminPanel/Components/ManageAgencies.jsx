@@ -25,6 +25,67 @@ const ManageAgencies = () => {
         fetchAgencies();
     }, []);
 
+
+        // Inline styles
+        const styles = {
+            manageAgencies: {
+                display: 'flex',
+                minHeight: '100vh',
+                backgroundColor: '#000',
+            },
+            agenciesContent: {
+                flexGrow: 1,
+                padding: '20px',
+                marginLeft: '250px',
+            },
+            searchBar: {
+                width: '100%',
+                padding: '10px',
+                marginBottom: '20px',
+                borderRadius: '4px',
+                border: 'none',
+                background: '#1f2937',
+                color: 'white',
+            },
+            agencyList: {
+                display: 'flex',
+                flexDirection: 'column',
+            },
+            agencyCard: (disabled) => ({
+                backgroundColor: disabled ? '#ff0000' : '#1f2937',
+                color: 'white',
+                padding: '20px',
+                marginBottom: '10px',
+                borderRadius: '8px',
+                display: 'grid',
+                gridTemplateColumns: '2fr 3fr auto',
+                gap: '20px',
+                alignItems: 'center',
+                transition: 'background-color 0.3s ease',
+            }),
+            buttonGroup: {
+                display: 'flex',
+                gap: '10px',
+            },
+            button: {
+                padding: '10px 20px',
+                border: 'none',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                color: 'white',
+                background: '#1DA1F2',
+                transition: 'background-color 0.2s',
+            },
+            disabledButton: {
+                opacity: 0.5,
+                cursor: 'not-allowed',
+                background: '#555',
+            },
+            viewDetailsBtn: {
+                backgroundColor: 'green',
+            },
+        };
+
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);
     };
@@ -64,40 +125,40 @@ const ManageAgencies = () => {
     );
 
     return (
-        <div className="manage-agencies">
+        <div style={styles.manageAgencies}>
             <Sidebar />
-            <div className="agencies-content">
+            <div style={styles.agenciesContent}>
                 <input
                     type="text"
                     placeholder="Search Agencies"
                     value={searchTerm}
-                    onChange={handleSearch}
-                    className="search-bar"
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    style={styles.searchBar}
                 />
-                <div className="agency-list">
-                    {filteredAgencies.map((agency) => (
-                        <div key={agency._id} className={`agency-card ${agency.disabled ? 'disabled' : ''}`}>
-                            <div className="agency-details">
-                                <p className="agency-name">{agency.name}</p>
-                                <p className="agency-email">{agency.email}</p>
-                            </div>
-                            <div className="agency-actions">
+                <div style={styles.agencyList}>
+                    {agencies.map((agency) => (
+                        <div key={agency._id} style={styles.agencyCard(agency.disabled)}>
+                            <div>{agency.name}</div>
+                            <div>{agency.email}</div>
+                            <div style={styles.buttonGroup}>
                                 <button
                                     onClick={() => toggleAgencyStatus(agency._id, true)}
                                     disabled={agency.disabled}
-                                    className="disable-btn">
+                                    style={agency.disabled ? { ...styles.button, ...styles.disabledButton } : styles.button}
+                                >
                                     Disable
                                 </button>
                                 <button
                                     onClick={() => toggleAgencyStatus(agency._id, false)}
                                     disabled={!agency.disabled}
-                                    className="enable-btn">
+                                    style={!agency.disabled ? { ...styles.button, ...styles.disabledButton } : styles.button}
+                                >
                                     Enable
                                 </button>
                                 <button
                                     onClick={() => goToAgencyDetails(agency._id)}
-                                    className="view-details-btn" 
-                                    style={{ backgroundColor: 'green' }}>
+                                    style={{ ...styles.button, ...styles.viewDetailsBtn }}
+                                >
                                     View Details
                                 </button>
                             </div>

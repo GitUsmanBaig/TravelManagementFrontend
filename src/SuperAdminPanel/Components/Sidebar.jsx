@@ -62,9 +62,11 @@ const Sidebar = () => {
       <div>
         <Link to="/admin/admin-dashboard" style={linkStyle}>Dashboard</Link>
         <Link to="/admin/manage-users" style={linkStyle}>Manage Users</Link>
+        <Link to="/admin/hotel-owner-management" style={linkStyle}>Manage Hotel Owners</Link>
         <Link to="/admin/manage-agencies" style={linkStyle}>Manage Agencies</Link>
         <Link to="/admin/manage-packages" style={linkStyle}>Manage Packages</Link>
         <Link to="/admin/manage-queries" style={linkStyle}>Manage Queries</Link>
+        <Link to="/admin/approvals" style={linkStyle}>Approvals</Link>
       </div>
       <div style={bottomLinkStyle} onClick={handleLogout}>Logout</div>
     </div>
