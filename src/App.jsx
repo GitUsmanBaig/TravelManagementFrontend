@@ -26,12 +26,8 @@ import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
 import AdminManageQueries from "./SuperAdminPanel/Components/ManageQueries";
 import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
 import AdminSignup from "./SuperAdminPanel/Components/Signup";
-<<<<<<< HEAD
 import AdminApproval from "./SuperAdminPanel/Components/Approval";
 import AdminHotelOwnerManagement from "./SuperAdminPanel/Components/ManageHotelOwners";
-=======
-// import AdminIndividualTravelAgency from "./SuperAdminPanel/Components/IndividualTravelAgency";
->>>>>>> 350509d9e22a1bb8563e57df1ecd5901503b07fc
 
 
 function App() {
@@ -126,13 +122,9 @@ function App() {
           <Route path="/admin/manage-packages" element={<AdminManagePackage />} />
           <Route path="/admin/manage-agencies" element={<AdminManageAgencies />} />
           <Route path="/admin/manage-queries" element={<AdminManageQueries />} />
-<<<<<<< HEAD
           <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency/>} />
           <Route path="/admin/approvals" element={<AdminApproval />} />
           <Route path="/admin/hotel-owner-management" element={<AdminHotelOwnerManagement />} />
-=======
-          <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency />} />
->>>>>>> 350509d9e22a1bb8563e57df1ecd5901503b07fc
         </Routes>
       </BrowserRouter>
     </>
