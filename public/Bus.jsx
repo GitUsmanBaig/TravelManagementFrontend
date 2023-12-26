@@ -7,14 +7,14 @@ Source: https://sketchfab.com/3d-models/japanese-bus-nishitetsu-bus-fukuoka-f8a7
 Title: Japanese bus "Nishitetsu Bus" (Fukuoka)
 */
 
-import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import React from 'react'
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF('/bus.gltf')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Cube_nishitetsu_0.geometry} material={materials.nishitetsu} position={[0, 89.694, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
+      <mesh geometry={nodes.Cube_nishitetsu_0.geometry} material={materials.nishitetsu} position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={1.09} />
     </group>
   )
 }

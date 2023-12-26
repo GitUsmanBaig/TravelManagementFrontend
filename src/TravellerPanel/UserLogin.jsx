@@ -80,11 +80,11 @@ const UserLogin = () => {
                 </form>
             </div>
             <div className="canvas-container">
-                <Canvas>
+                <Canvas camera={{ position: [0, 0, 10], far: 10000 }}>
                     <ambientLight />
                     <Suspense fallback={null}>
                         <Bus />
-                        <OrbitControls enableZoom={true} autoRotate autoRotateSpeed={0.5} />
+                        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
                     </Suspense>
                 </Canvas>
             </div>
