@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // assuming you are using react-router
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const sidebarStyle = {
     backgroundColor: '#1f2937', // Dark grey background
     color: '#9ca3af', // Light grey text
@@ -37,6 +40,23 @@ const Sidebar = () => {
     marginTop: 'auto', // push the logout to the bottom
   };
 
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/super-admin/logout', {
+        method: 'POST', // or 'GET', depending on your API setup
+        credentials: 'include', // Needed to include the cookie
+      });
+
+      if (response.ok) {
+        navigate('/admin/login');
+      } else {
+        console.error('Logout failed');
+      }
+    } catch (error) {
+      console.error('Error during logout', error);
+    }
+  };
+
   return (
     <div style={sidebarStyle}>
       <div>
@@ -44,9 +64,9 @@ const Sidebar = () => {
         <Link to="/admin/manage-users" style={linkStyle}>Manage Users</Link>
         <Link to="/admin/manage-agencies" style={linkStyle}>Manage Agencies</Link>
         <Link to="/admin/manage-packages" style={linkStyle}>Manage Packages</Link>
-        <Link to="" style={linkStyle}>Manage Queries</Link>
+        <Link to="/admin/manage-queries" style={linkStyle}>Manage Queries</Link>
       </div>
-      <Link to="/logout" style={bottomLinkStyle}>Logout</Link>
+      <div style={bottomLinkStyle} onClick={handleLogout}>Logout</div>
     </div>
   );
 };
