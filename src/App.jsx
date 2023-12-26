@@ -19,12 +19,17 @@ import UserSignup from "./TravellerPanel/UserSignup";
 
 import AdminDashboard from "./SuperAdminPanel/Components/AdminDashboard";
 import AdminLogin from "./SuperAdminPanel/Components/Login";
+import AdminManageAgencies from "./SuperAdminPanel/Components/ManageAgencies";
+import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
 import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
 import AdminSignup from "./SuperAdminPanel/Components/Signup";
+<<<<<<< HEAD
 import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
 import AdminManageAgencies from "./SuperAdminPanel/Components/ManageAgencies";
 import AdminManageQueries from "./SuperAdminPanel/Components/ManageQueries";
 import AdminIndividualTravelAgency from "./SuperAdminPanel/Components/IndividualTravelAgency";
+=======
+>>>>>>> 989391101cee1395c3eae867ee754250aab48b09
 
 function App() {
   const TravelAgencyOutlet = () => {
@@ -38,27 +43,29 @@ function App() {
 
   const RootforPage = () => {
     return (
-      <div>
-        <h1>Root for Page</h1>
-        <button>
-          <Link to="/admin/login">Super Admin Panel</Link>
-        </button>
-        <button>
-          <Link to="/travel-agency">
-            Travel Agency Panel
-          </Link>
-        </button>
-        <button>
-          <Link to="/user/login">
-            Traveller Panel
-          </Link>
-        </button>
-        <button>
-          <Link to="/hotel/login">
-            Hotel Owner Panel
-          </Link>
-        </button>
-      </div>
+      <>
+        <div>
+          <h1>Root for Page</h1>
+          <button>
+            <Link to="/admin/login">Super Admin Panel</Link>
+          </button>
+          <button>
+            <Link to="/travel-agency">
+              Travel Agency Panel
+            </Link>
+          </button>
+          <button>
+            <Link to="/user/login">
+              Traveller Panel
+            </Link>
+          </button>
+          <button>
+            <Link to="/hotel/login">
+              Hotel Owner Panel
+            </Link>
+          </button>
+        </div>
+      </>
     );
   }
 

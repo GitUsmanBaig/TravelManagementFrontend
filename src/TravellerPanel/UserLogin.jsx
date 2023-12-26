@@ -1,6 +1,9 @@
 // TravellerPanel/Pages/UserLogin.jsx
-import { useState } from 'react';
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { Suspense, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import Bus from "../../public/Bus";
 import './UserLogin.css'; // Make sure the CSS file is in the same directory
 
 const UserLogin = () => {
@@ -34,46 +37,57 @@ const UserLogin = () => {
 
 
     return (
-        <div className="login-container">
-            <form className="login-form" onSubmit={handleSubmit}>
-                <label htmlFor="email">Email:</label>
-                <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <label htmlFor="password">Password:</label>
-                <input
-                    id="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit">Login</button>
-                <p>Dont have an account?
-                    <Link to="/user/signup"
-                        style={{
-                            textDecoration: 'none',
-                            color: 'blue',
-                            marginLeft: '10px'
-                        }}>
-                        Signup
-                    </Link>
-                </p>
-                <p>Forgot Password?
-                    <Link to="/user/forgotpassword"
-                        style={{
-                            textDecoration: 'none',
-                            color: 'blue',
-                            marginLeft: '10px'
-                        }}>
-                        Click here
-                    </Link>
-                </p>
-            </form>
+        <div className="login-page">
+            <div className="login-container">
+                <form className="login-form" onSubmit={handleSubmit}>
+                    <label htmlFor="email">Email:</label>
+                    <input
+                        id="email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <label htmlFor="password">Password:</label>
+                    <input
+                        id="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <button type="submit">Login</button>
+                    <p>Dont have an account?
+                        <Link to="/user/signup"
+                            style={{
+                                textDecoration: 'none',
+                                color: 'blue',
+                                marginLeft: '10px'
+                            }}>
+                            Signup
+                        </Link>
+                    </p>
+                    <p>Forgot Password?
+                        <Link to="/user/forgotpassword"
+                            style={{
+                                textDecoration: 'none',
+                                color: 'blue',
+                                marginLeft: '10px'
+                            }}>
+                            Click here
+                        </Link>
+                    </p>
+                </form>
+            </div>
+            <div className="canvas-container">
+                <Canvas camera={{ position: [0, 0, 10], far: 10000 }}>
+                    <ambientLight />
+                    <Suspense fallback={null}>
+                        <Bus />
+                        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+                    </Suspense>
+                </Canvas>
+            </div>
         </div>
     );
 };

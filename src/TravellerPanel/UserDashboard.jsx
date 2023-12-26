@@ -92,7 +92,11 @@ const UserDashboard = () => {
                 <Link to="/user/bookings">Bookings</Link>
                 <Link to="/user/booking-history">Booking History</Link>
                 <Link to="/user/feedbacksSent">Feedbacks</Link>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout}
+                    style={{
+                        width: "8%"
+                    }}
+                >Logout</button>
             </nav>
             <div className="dashboard-container">
                 <h1>Package Dashboard</h1>
@@ -102,6 +106,9 @@ const UserDashboard = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                     className="search-bar"
+                    style={{
+                        width: "98%"
+                    }}
                 />
                 <div className="packages-list">
                     {filteredPackages.map(pkg => (
@@ -116,7 +123,11 @@ const UserDashboard = () => {
                                 <p>Total Amount: ${pkg.totalAmount}</p>
                             </div>
                             <div className="rating-and-comments">
-                                <p>Average Rating: {pkg.avgRating || 'Not Rated'}</p>
+                                <b
+                                    style={{
+                                        fontSize: "18px"
+                                    }}> <p
+                                        className='rating'>Average Rating: {pkg.avgRating || 'Not Rated'}</p></b>
                                 <button onClick={(e) => {
                                     e.stopPropagation();
                                     toggleComments(pkg._id);
