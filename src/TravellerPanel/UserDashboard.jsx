@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './UserDashboard.css';
+import Weather from './Weather';
 
 const UserDashboard = () => {
     const [packages, setPackages] = useState([]);
@@ -9,6 +10,7 @@ const UserDashboard = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showComments, setShowComments] = useState({});
+    const [selectedCity, setSelectedCity] = useState('Islamabad'); // Default city
     const navigate = useNavigate();
 
     const fetchPackages = async () => {
@@ -100,6 +102,7 @@ const UserDashboard = () => {
             </nav>
             <div className="dashboard-container">
                 <h1>Package Dashboard</h1>
+                <Weather city={selectedCity} />
                 <input
                     type="text"
                     placeholder="Search Packages"
