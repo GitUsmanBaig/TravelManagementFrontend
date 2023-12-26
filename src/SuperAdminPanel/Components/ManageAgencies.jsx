@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import './ManageAgencies.css';
+import { useNavigate } from 'react-router-dom';
 
 const ManageAgencies = () => {
     const [agencies, setAgencies] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchAgencies = async () => {
@@ -27,33 +29,35 @@ const ManageAgencies = () => {
         setSearchTerm(e.target.value);
     };
 
-    const toggleAgencyStatus = async (agencyId, disable) => {
+    const goToAgencyDetails = (agencyId) => {
+        navigate(`/admin/agency/${agencyId}`);
+    };
+
+    const toggleAgencyStatus = async (agencyId, shouldDisable) => {
+        const action = shouldDisable ? 'disable' : 'enable';
+        const endpoint = `http://localhost:3000/api/super-admin/${action}_travelagency/${agencyId}`;
+        
         try {
-            // Set the appropriate endpoint based on whether you want to disable or enable the agency
-            const endpoint = disable ? 'disable_travelagency' : 'enable_travelagency'; // Adjust these endpoints based on your actual API routes
-            const response = await fetch(`http://localhost:3000/api/super-admin/${endpoint}/${agencyId}`, {
-                method: 'PUT', // Assuming you use PUT method for enabling/disabling
+            const response = await fetch(endpoint, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+                    'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
                 },
                 credentials: 'include',
             });
-    
+
             if (response.ok) {
-                // On success, update the local state to reflect the new status of the agency
                 setAgencies(agencies.map(agency => 
-                    agency._id === agencyId ? { ...agency, disabled: disable } : agency
+                    agency._id === agencyId ? { ...agency, disabled: shouldDisable } : agency
                 ));
             } else {
-                // Handle any errors, such as showing a notification to the user
-                console.error('Failed to update agency status:', await response.text());
+                console.error('Failed to toggle agency status:', await response.text());
             }
         } catch (error) {
-            console.error('Error updating agency status:', error);
+            console.error('Error toggling agency status:', error);
         }
     };
-    
 
     const filteredAgencies = agencies.filter(agency =>
         agency.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -73,19 +77,28 @@ const ManageAgencies = () => {
                 <div className="agency-list">
                     {filteredAgencies.map((agency) => (
                         <div key={agency._id} className={`agency-card ${agency.disabled ? 'disabled' : ''}`}>
-                            <div>{agency.name}</div>
-                            <div>{agency.email}</div>
-                            <div>{agency.noOfPackages}</div>
-                            <div className="button-group">
+                            <div className="agency-details">
+                                <p className="agency-name">{agency.name}</p>
+                                <p className="agency-email">{agency.email}</p>
+                            </div>
+                            <div className="agency-actions">
                                 <button
                                     onClick={() => toggleAgencyStatus(agency._id, true)}
-                                    disabled={agency.disabled}>
+                                    disabled={agency.disabled}
+                                    className="disable-btn">
                                     Disable
                                 </button>
                                 <button
                                     onClick={() => toggleAgencyStatus(agency._id, false)}
-                                    disabled={!agency.disabled}>
+                                    disabled={!agency.disabled}
+                                    className="enable-btn">
                                     Enable
+                                </button>
+                                <button
+                                    onClick={() => goToAgencyDetails(agency._id)}
+                                    className="view-details-btn" 
+                                    style={{ backgroundColor: 'green' }}>
+                                    View Details
                                 </button>
                             </div>
                         </div>

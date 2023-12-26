@@ -3,6 +3,7 @@ import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 // import './AdminDashboard.css';
 import Sidebar from './Sidebar';
+import Weather from './Weather';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -12,6 +13,7 @@ const AdminDashboard = () => {
     const [packageData, setPackageData] = useState([]);
     const [userTrends, setUserTrends] = useState([]);
     const [topPackages, setTopPackages] = useState([]);
+    const [selectedCity, setSelectedCity] = useState('Islamabad'); // Default city
 
     useEffect(() => {
         // Fetch user count
@@ -119,6 +121,14 @@ const AdminDashboard = () => {
         fetchPackageData();
     }, []);
 
+    // Dashboard header style
+const dashboardHeaderStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '20px',
+};
+
     const data = {
         labels: packageData.map(pkg => pkg.name),
         datasets: [
@@ -216,7 +226,10 @@ const AdminDashboard = () => {
         <div style={dashboardStyle}>
         <Sidebar />
         <div style={contentContainerStyle}>
-            <h1>Admin Dashboard</h1>
+            <div style={dashboardHeaderStyle}>
+                    <h1>Admin Dashboard</h1>
+                    <Weather city={selectedCity} />
+                </div>
             <div className="counters" style={cardStyle}>
                 <div className="user-count" style={counterCardStyle}>
                     <h3>Total Users</h3>

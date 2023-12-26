@@ -23,6 +23,8 @@ import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
 import AdminSignup from "./SuperAdminPanel/Components/Signup";
 import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
 import AdminManageAgencies from "./SuperAdminPanel/Components/ManageAgencies";
+import AdminManageQueries from "./SuperAdminPanel/Components/ManageQueries";
+import AdminIndividualTravelAgency from "./SuperAdminPanel/Components/IndividualTravelAgency";
 
 function App() {
   const TravelAgencyOutlet = () => {
@@ -91,6 +93,10 @@ function App() {
           <Route path="/admin/manage-users" element={<ManageUsers />} />
           <Route path="/admin/manage-packages" element={<AdminManagePackage />} />
           <Route path="/admin/manage-agencies" element={<AdminManageAgencies />} />
+          <Route path="/admin/manage-queries" element={<AdminManageQueries />} />
+          <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency/>} />
+
+          
 
 
         </Routes>
