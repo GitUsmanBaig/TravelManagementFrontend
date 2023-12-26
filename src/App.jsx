@@ -18,17 +18,14 @@ import UserSignup from "./TravellerPanel/UserSignup";
 
 
 import AdminDashboard from "./SuperAdminPanel/Components/AdminDashboard";
+import AdminIndividualTravelAgency from "./SuperAdminPanel/Components/IndividualTravelAgency";
 import AdminLogin from "./SuperAdminPanel/Components/Login";
 import AdminManageAgencies from "./SuperAdminPanel/Components/ManageAgencies";
 import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
-import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
-
 import AdminManageQueries from "./SuperAdminPanel/Components/ManageQueries";
+import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
 import AdminSignup from "./SuperAdminPanel/Components/Signup";
 import AdminIndividualTravelAgency from "./SuperAdminPanel/Components/IndividualTravelAgency";
-import AdminApprovals from "./SuperAdminPanel/Components/Approval";
-import AdminHotelOwnerManagement from "./SuperAdminPanel/Components/ManageHotelOwners";
-
 
 
 function App() {
@@ -102,8 +99,6 @@ function App() {
           <Route path="/admin/manage-agencies" element={<AdminManageAgencies />} />
           <Route path="/admin/manage-queries" element={<AdminManageQueries />} />
           <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency/>} />
-          <Route path="/admin/approvals" element={<AdminApprovals />} />
-          <Route path="/admin/hotel-owner-management" element={<AdminHotelOwnerManagement />} />
         </Routes>
       </BrowserRouter>
     </>

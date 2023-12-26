@@ -80,7 +80,7 @@ const UserLogin = () => {
                 </form>
             </div>
             <div className="canvas-container">
-                <Canvas camera={{ position: [0, 0, 10], far: 10000 }}>
+                <Canvas camera={{ position: [0, 0, 12], far: 10000 }}>
                     <ambientLight />
                     <Suspense fallback={null}>
                         <Bus />
