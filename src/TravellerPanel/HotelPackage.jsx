@@ -164,6 +164,7 @@ const HotelPackage = () => {
                                     style={{
                                         width: '98%',
                                         backgroundColor: 'white',
+                                        color: 'black'
                                     }}
                                     value={confirmationCode}
                                     onChange={(e) => setConfirmationCode(e.target.value)}

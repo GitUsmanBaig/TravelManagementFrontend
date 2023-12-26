@@ -18,18 +18,13 @@ import UserSignup from "./TravellerPanel/UserSignup";
 
 
 import AdminDashboard from "./SuperAdminPanel/Components/AdminDashboard";
+import AdminIndividualTravelAgency from "./SuperAdminPanel/Components/IndividualTravelAgency";
 import AdminLogin from "./SuperAdminPanel/Components/Login";
 import AdminManageAgencies from "./SuperAdminPanel/Components/ManageAgencies";
 import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
+import AdminManageQueries from "./SuperAdminPanel/Components/ManageQueries";
 import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
 import AdminSignup from "./SuperAdminPanel/Components/Signup";
-<<<<<<< HEAD
-import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
-import AdminManageAgencies from "./SuperAdminPanel/Components/ManageAgencies";
-import AdminManageQueries from "./SuperAdminPanel/Components/ManageQueries";
-import AdminIndividualTravelAgency from "./SuperAdminPanel/Components/IndividualTravelAgency";
-=======
->>>>>>> 989391101cee1395c3eae867ee754250aab48b09
 
 function App() {
   const TravelAgencyOutlet = () => {
@@ -101,9 +96,9 @@ function App() {
           <Route path="/admin/manage-packages" element={<AdminManagePackage />} />
           <Route path="/admin/manage-agencies" element={<AdminManageAgencies />} />
           <Route path="/admin/manage-queries" element={<AdminManageQueries />} />
-          <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency/>} />
+          <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency />} />
 
-          
+
 
 
         </Routes>
