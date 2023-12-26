@@ -73,11 +73,12 @@ const Login = () => {
     return (
         <div>
             <div className="login-container"
-                style={{
-                    width: '400px',
+                 style={{
                     position: "relative",
                     left: "100px",
                     top: "140px",
+                    backgroundColor: "#192734", 
+                    color: "white", 
                 }}
             >
                 <form onSubmit={handleSubmit}>
@@ -136,13 +137,14 @@ const Login = () => {
                     position: "relative",
                     left: "550px",
                     top: "-330px",
+                    border : "none",
                 }}
             >
                 <Canvas camera={{ position: [0, 2, 4], far: 10000 }}>
                     <ambientLight />
                     <Suspense fallback={null}>
                         <Computer />
-                        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
+                        <OrbitControls enableZoom={true} autoRotate autoRotateSpeed={1} />
                     </Suspense>
                 </Canvas>
             </div>
