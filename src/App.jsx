@@ -52,11 +52,15 @@ function App() {
             <Route path="login" element={<TravelAgencyLogin />} />
             <Route path="create-package" element={<CreatePackage />} />
             <Route
-              path=":id/edit-path"
+              path="edit-package"
               element={<UpdatePackage oldPackage={Package} />}
             />
             <Route
-              path=":id/delete-path"
+              path="delete-package"
+              element={<DeletePackage Package={Package} />}
+            />
+            <Route
+              path="reviews-package"
               element={<DeletePackage Package={Package} />}
             />
           </Route>

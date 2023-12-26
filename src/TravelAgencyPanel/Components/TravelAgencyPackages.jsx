@@ -11,15 +11,25 @@ import {
   CssBaseline,
   Grid,
   Typography,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from "@mui/material";
 
 import usePackages from "../Hooks/usePackages";
 import { useStore } from "../Hooks/useStore";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 //import { toast } from "react-toastify";
+// import  from "@material-ui/material/Dialog";
+// import DialogTitle from "@material-ui/material/DialogTitle";
+// import DialogContent from "@material-ui/material/DialogContent";
 
 const TravelAgencyPackages = () => {
-  const { AgencyId } = useStore();
+  const { AgencyId, Package } = useStore();
+  const [open, setOpen] = useState(false);
+  //const [reviews, setReviews] = useState([]);
 
   const { isLoading, error, data } = usePackages(AgencyId);
   const setPackage = useStore(state => state.setPackage);
@@ -28,12 +38,17 @@ const TravelAgencyPackages = () => {
 
   const handleEdit = packageData => {
     setPackage(packageData);
-    navigate(`/travel-agency/${AgencyId}/edit-path`);
+    navigate(`/travel-agency/edit-package`);
   };
 
   const handleDelete = async packageData => {
     setPackage(packageData);
-    navigate(`/travel-agency/${AgencyId}/delete-path`);
+    navigate(`/travel-agency/delete-package`);
+  };
+
+  const handleReviews = async packageData => {
+    setPackage(packageData);
+    setOpen(true);
   };
 
   if (isLoading) {
@@ -65,6 +80,27 @@ const TravelAgencyPackages = () => {
           </Typography>
         </Box>
       </>
+    );
+  }
+
+  if (open) {
+    return (
+      <Dialog open={open} onClose={() => setOpen(false)} maxWidth={"md"}>
+        <DialogTitle>Package Reviews</DialogTitle>
+        <hr />
+        <DialogContent>
+          {Package.reviews.map((review, index) => (
+            <Typography variant="subtitle2" color="secondary" key={index}>
+              {review}
+            </Typography>
+          ))}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpen(false)} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     );
   }
 
@@ -119,7 +155,12 @@ const TravelAgencyPackages = () => {
                   </CardActionArea>
                   <CardActions>
                     <>
-                      <Button size="small">Reviews</Button>
+                      <Button
+                        size="small"
+                        onClick={() => handleReviews(packageData)}
+                      >
+                        Reviews
+                      </Button>
                     </>
                     <>
                       <Button
