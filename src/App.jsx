@@ -32,11 +32,6 @@ import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
 import AdminSignup from "./SuperAdminPanel/Components/Signup";
 import AdminApproval from "./SuperAdminPanel/Components/Approval";
 import AdminHotelOwnerManagement from "./SuperAdminPanel/Components/ManageHotelOwners";
-<<<<<<< HEAD
-
-=======
->>>>>>> 090a0c5da83d76f8ce47fe33abbbd00e5fcebb2e
-
 function App() {
   const setAgencyId = useStore(state => state.setAgencyId);
   const setAgencyToken = useStore(state => state.setAgencyToken);
@@ -173,36 +168,12 @@ function App() {
           <Route path="/admin/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin/register" element={<AdminSignup />} />
           <Route path="/admin/manage-users" element={<ManageUsers />} />
-<<<<<<< HEAD
           <Route path="/admin/manage-packages" element={<AdminManagePackage />} />
           <Route path="/admin/manage-agencies" element={<AdminManageAgencies />} />
           <Route path="/admin/manage-queries" element={<AdminManageQueries />} />
           <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency/>} />
           <Route path="/admin/approvals" element={<AdminApproval />} />
           <Route path="/admin/hotel-owner-management" element={<AdminHotelOwnerManagement />} />
-=======
-          <Route
-            path="/admin/manage-packages"
-            element={<AdminManagePackage />}
-          />
-          <Route
-            path="/admin/manage-agencies"
-            element={<AdminManageAgencies />}
-          />
-          <Route
-            path="/admin/manage-queries"
-            element={<AdminManageQueries />}
-          />
-          <Route
-            path="/admin/hotel-owner-management"
-            element={<AdminHotelOwnerManagement />}
-          />
-          <Route
-            path="/admin/agency/:agencyId"
-            element={<AdminIndividualTravelAgency />}
-          />
-          <Route path="/admin/approvals" element={<AdminApproval />} />
->>>>>>> 090a0c5da83d76f8ce47fe33abbbd00e5fcebb2e
         </Routes>
       </BrowserRouter>
     </>
