@@ -31,7 +31,7 @@ const schema = z.object({
     .min(10, "Helpline must be at least 10 characters."),
 });
 
-const VisuallyHiddenInput = styled("input")({
+export const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
   clipPath: "inset(50%)",
   height: 1,

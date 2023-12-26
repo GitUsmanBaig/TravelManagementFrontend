@@ -11,6 +11,7 @@ import UserLogin from "./TravellerPanel/UserLogin";
 import UserDashboard from "./TravellerPanel/UserDashboard";
 import HotelPackage from "./TravellerPanel/HotelPackage";
 import UserProfile from "./TravellerPanel/UserProfile";
+import CreatePackage from "./TravelAgencyPanel/Components/CreatePackage";
 
 function App() {
   const setAgencyId = useStore(state => state.setAgencyId);
@@ -29,7 +30,7 @@ function App() {
     const AgencyToken = localStorage.getItem("AgencyToken");
     const AgencyId = localStorage.getItem("AgencyId");
 
-    console.log(AgencyToken, AgencyId);
+    //console.log(AgencyToken, AgencyId);
     if (AgencyToken) {
       setAgencyToken(AgencyToken);
     }
@@ -46,6 +47,7 @@ function App() {
             <Route index element={<TravelAgencyHome />} />
             <Route path="register" element={<TravelAgencySignup />} />
             <Route path="login" element={<TravelAgencyLogin />} />
+            <Route path="create-package" element={<CreatePackage />} />
           </Route>
 
           <Route path="/user/login" element={<UserLogin />} />
