@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import React, { Suspense, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Bus from '../../../public/Bus';
+import Computer from '../../../public/Computer';
 import './Login.css';
 
 const Login = () => {
@@ -73,7 +72,14 @@ const Login = () => {
 
     return (
         <div>
-            <div className="login-container">
+            <div className="login-container"
+                style={{
+                    width: '400px',
+                    position: "relative",
+                    left: "100px",
+                    top: "140px",
+                }}
+            >
                 <form onSubmit={handleSubmit}>
                     <h2>Login</h2>
                     <input
@@ -124,12 +130,19 @@ const Login = () => {
 
                 <button onClick={() => setShowModal(true)}>Forgot Password?</button>
             </div>
-            <div className="canvas-container">
-            <Canvas camera={{ position: [0, 0, 10], far: 10000 }}>
+            <div className="canvas-container"
+                style={{
+                    width: '100%',
+                    position: "relative",
+                    left: "700px",
+                    top: "-330px",
+                }}
+            >
+                <Canvas camera={{ position: [0, 2, 4], far: 10000 }}>
                     <ambientLight />
                     <Suspense fallback={null}>
-                        <Bus />
-                        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+                        <Computer />
+                        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
                     </Suspense>
                 </Canvas>
             </div>
