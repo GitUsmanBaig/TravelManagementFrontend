@@ -54,7 +54,7 @@ function App() {
           <Route path="/user/forgotpassword" element={<ForgotPassword />} />
           <Route path="/user/booking-history" element={<BookingHistory />} />
           <Route path="/user/feedbacksSent" element={<FeedbackSent />} />
-          <Route path="/user/feedbacksReceived" element={<FeedbackReceived />} />
+          <Route path="/user/feedbacksReceived/:feedbackId" element={<FeedbackReceived />} />
 
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/admin-dashboard" element={<AdminDashboard />} />

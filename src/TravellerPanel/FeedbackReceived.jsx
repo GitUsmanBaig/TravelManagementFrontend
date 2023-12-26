@@ -4,13 +4,18 @@ import './FeedbackReceived.css';
 
 const FeedbackReceived = () => {
     const [feedbacksReceived, setFeedbacksReceived] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    const { feedbackId } = useParams(); // Get feedbackId from URL params
+    const { feedbackId } = useParams();
+    console.log(feedbackId);
 
     useEffect(() => {
         const fetchFeedbacksReceived = async () => {
-            setIsLoading(true);
+            if (!feedbackId) {
+                setError("Feedback ID is undefined.");
+                return;
+            }
+            // setIsLoading(true);
             try {
                 const response = await fetch(`http://localhost:3000/user/getFeedbacksReceived/${feedbackId}`, {
                     method: 'GET',
@@ -26,16 +31,14 @@ const FeedbackReceived = () => {
             } catch (err) {
                 setError(err.message);
             } finally {
-                setIsLoading(false);
+                // setIsLoading(false);
             }
         };
 
-        if (feedbackId) {
-            fetchFeedbacksReceived();
-        }
+        fetchFeedbacksReceived();
     }, [feedbackId]);
 
-    if (isLoading) return <div className="loading">Loading...</div>;
+    // if (isLoading) return <div className="loading">Loading...</div>;
     if (error) return <div className="error-message">{error}</div>;
 
     return (
