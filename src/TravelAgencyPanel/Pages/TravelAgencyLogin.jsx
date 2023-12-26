@@ -91,7 +91,7 @@ const Login = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Login
+          Travel Agency Login
         </Typography>
         <Box
           component="form"
@@ -101,6 +101,7 @@ const Login = () => {
           sx={{ mt: 3 }}
         >
           <TextField
+            size="small"
             {...register("email")}
             margin="normal"
             required
@@ -114,6 +115,7 @@ const Login = () => {
             helperText={errors.email?.message}
           />
           <TextField
+            size="small"
             {...register("password")}
             margin="normal"
             required
@@ -130,13 +132,13 @@ const Login = () => {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{ mt: 2, mb: 1 }}
           >
             Login
           </Button>
           <Grid container justifyContent="center">
             <Grid item>
-              <Link href="/signup" variant="body2">
+              <Link href="/travel-agency/register" variant="body2">
                 Signup instead?
               </Link>
             </Grid>
