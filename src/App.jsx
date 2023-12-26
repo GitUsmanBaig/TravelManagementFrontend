@@ -98,9 +98,6 @@ function App() {
           <Route path="/admin/manage-queries" element={<AdminManageQueries />} />
           <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency />} />
 
-
-
-
         </Routes>
       </BrowserRouter>
     </>
