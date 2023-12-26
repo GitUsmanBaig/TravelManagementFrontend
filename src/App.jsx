@@ -12,10 +12,13 @@ import UserDashboard from "./TravellerPanel/UserDashboard";
 import HotelPackage from "./TravellerPanel/HotelPackage";
 import UserProfile from "./TravellerPanel/UserProfile";
 import CreatePackage from "./TravelAgencyPanel/Components/CreatePackage";
+import UpdatePackage from "./TravelAgencyPanel/Components/UpdatePackage";
+import DeletePackage from "./TravelAgencyPanel/Components/DeletePackage";
 
 function App() {
   const setAgencyId = useStore(state => state.setAgencyId);
   const setAgencyToken = useStore(state => state.setAgencyToken);
+  const Package = useStore(state => state.Package);
 
   const TravelAgencyOutlet = () => {
     return (
@@ -48,6 +51,14 @@ function App() {
             <Route path="register" element={<TravelAgencySignup />} />
             <Route path="login" element={<TravelAgencyLogin />} />
             <Route path="create-package" element={<CreatePackage />} />
+            <Route
+              path=":id/edit-path"
+              element={<UpdatePackage oldPackage={Package} />}
+            />
+            <Route
+              path=":id/delete-path"
+              element={<DeletePackage Package={Package} />}
+            />
           </Route>
 
           <Route path="/user/login" element={<UserLogin />} />

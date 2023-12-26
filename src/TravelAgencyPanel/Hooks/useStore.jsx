@@ -5,4 +5,6 @@ export const useStore = create(set => ({
   setAgencyToken: AgencyToken => set({ AgencyToken }),
   AgencyId: null,
   setAgencyId: AgencyId => set({ AgencyId }),
+  Package: null,
+  setPackage: Package => set({ Package }),
 }));

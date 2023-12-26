@@ -15,11 +15,26 @@ import {
 
 import usePackages from "../Hooks/usePackages";
 import { useStore } from "../Hooks/useStore";
+import { useNavigate } from "react-router-dom";
+//import { toast } from "react-toastify";
 
 const TravelAgencyPackages = () => {
   const { AgencyId } = useStore();
 
   const { isLoading, error, data } = usePackages(AgencyId);
+  const setPackage = useStore(state => state.setPackage);
+
+  const navigate = useNavigate();
+
+  const handleEdit = packageData => {
+    setPackage(packageData);
+    navigate(`/travel-agency/${AgencyId}/edit-path`);
+  };
+
+  const handleDelete = async packageData => {
+    setPackage(packageData);
+    navigate(`/travel-agency/${AgencyId}/delete-path`);
+  };
 
   if (isLoading) {
     return (
@@ -103,9 +118,23 @@ const TravelAgencyPackages = () => {
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
+                    <>
+                      <Button size="small">Reviews</Button>
+                    </>
+                    <>
+                      <Button
+                        size="small"
+                        onClick={() => handleEdit(packageData)}
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        size="small"
+                        onClick={() => handleDelete(packageData)}
+                      >
+                        Delete
+                      </Button>
+                    </>
                   </CardActions>
                 </Card>
               </Grid>
