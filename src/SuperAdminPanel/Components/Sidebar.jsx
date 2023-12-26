@@ -42,8 +42,8 @@ const Sidebar = () => {
       <div>
         <Link to="/admin/admin-dashboard" style={linkStyle}>Dashboard</Link>
         <Link to="/admin/manage-users" style={linkStyle}>Manage Users</Link>
-        <Link to="" style={linkStyle}>Manage Agencies</Link>
-        <Link to="" style={linkStyle}>Manage Packages</Link>
+        <Link to="/admin/manage-agencies" style={linkStyle}>Manage Agencies</Link>
+        <Link to="/admin/manage-packages" style={linkStyle}>Manage Packages</Link>
         <Link to="" style={linkStyle}>Manage Queries</Link>
       </div>
       <Link to="/logout" style={bottomLinkStyle}>Logout</Link>

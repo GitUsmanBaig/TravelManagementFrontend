@@ -17,6 +17,7 @@ const Login = () => {
         try {
             const response = await fetch('http://localhost:3000/api/super-admin/login_admin', {
                 method: 'POST',
+                credentials : 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },

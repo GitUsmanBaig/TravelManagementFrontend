@@ -1,0 +1,134 @@
+.manage-packages {
+    display: flex;
+    min-height: 100vh;
+    background-color: #000; /* Black background for the entire dashboard */
+}
+
+.packages-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* Same width as sidebar */
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: none;
+    background: #1f2937; /* Dark grey background */
+    color: #fff; /* White text */
+}
+
+.package-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.package-card {
+    background-color: #1f2937; /* Dark grey background */
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr auto; /* Adjust the proportion as needed */
+    gap: 20px; /* Increased gap between elements */
+    align-items: center;
+    transition: background-color 0.3s ease;
+    width: auto;
+    border: none;
+}
+
+.package-card.disabled {
+    background-color: #ff0000; /* Red background for disabled packages */
+}
+
+.package-card .button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.package-card button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff; /* White text */
+    background: #1DA1F2; /* Twitter blue background */
+    transition: background-color 0.2s;
+}
+
+.package-card button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #555; /* Darker background for disabled button */
+}
+
+.package-card button:hover:not(:disabled) {
+    background: #0d8abc; /* Slightly darker blue on hover */
+}
+
+
+/* Modal styles */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: #1f2937;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+  }
+  
+  .modal h2 {
+    color: #fff;
+  }
+  
+  .modal label {
+    display: block;
+    margin-top: 10px;
+    color: #fff;
+  }
+  
+  .modal input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .modal-actions {
+    text-align: right;
+  }
+  
+  .modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .modal-actions button:first-child {
+    background: #1DA1F2;
+    color: #fff;
+  }
+  
+  .modal-actions button:last-child {
+    background: #e5e7eb;
+    color: #000;
+  }
+  

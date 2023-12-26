@@ -21,6 +21,8 @@ import AdminDashboard from "./SuperAdminPanel/Components/AdminDashboard";
 import AdminLogin from "./SuperAdminPanel/Components/Login";
 import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
 import AdminSignup from "./SuperAdminPanel/Components/Signup";
+import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
+import AdminManageAgencies from "./SuperAdminPanel/Components/ManageAgencies";
 
 function App() {
   const TravelAgencyOutlet = () => {
@@ -60,6 +62,8 @@ function App() {
           <Route path="/admin/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin/register" element={<AdminSignup />} />
           <Route path="/admin/manage-users" element={<ManageUsers />} />
+          <Route path="/admin/manage-packages" element={<AdminManagePackage />} />
+          <Route path="/admin/manage-agencies" element={<AdminManageAgencies />} />
 
 
         </Routes>
