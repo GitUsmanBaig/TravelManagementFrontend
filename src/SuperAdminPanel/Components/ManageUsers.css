@@ -36,6 +36,7 @@
     gap: 20px; /* Increased gap between elements */
     align-items: center;
     transition: background-color 0.3s ease;
+    position: relative;
 }
 
 .user-card.disabled {
@@ -65,4 +66,13 @@
 
 .user-card button:hover:not(:disabled) {
     background: #0d8abc; /* Slightly darker blue on hover */
+}
+
+.star-icon {
+    position: absolute; /* Absolute position for the star icon */
+    top: 50%; /* Align the icon vertically in the middle of the card */
+    left: 0; /* Align the icon to the left of the card */
+    transform: translate(-50%, -50%); /* Adjust the exact position of the icon */
+    color: yellow; /* Set the star color to yellow */
+    /* ... other styles for size, etc. ... */
 }
