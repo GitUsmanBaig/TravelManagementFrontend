@@ -1,13 +1,18 @@
+.hotel-package-container {
+    padding: 20px;
+    background-color: #121212;
+}
+
 .hotel-package-page {
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: #19191a;
 }
 
 .hotel-package-content {
     max-width: 1200px;
     margin: auto;
     padding: 20px;
-    background-color: white;
+    background-color: #1f2937;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -34,14 +39,14 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px;
-    background-color: #e9ecef;
+    /* padding: 20px; */
+    background-color: #2a3e5b;
     border-radius: 8px;
 }
 
 .booking-section,
 .confirmation-section {
-    background-color: white;
+    background-color: #2a3e5b;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -57,7 +62,7 @@
 
 .booking-input,
 .confirmation-input {
-    width: 100%;
+    width: 98%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ced4da;
@@ -85,5 +90,6 @@
     text-align: center;
     font-size: 1.2em;
 }
+
 
 /* Add any additional styles as needed */

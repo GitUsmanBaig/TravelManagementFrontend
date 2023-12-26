@@ -1,0 +1,78 @@
+.manage-users {
+    display: flex;
+    min-height: 100vh;
+    background-color: #000; /* Black background for the entire dashboard */
+}
+
+.users-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* Same width as sidebar */
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: none;
+    background: #1f2937; /* Dark grey background */
+    color: #fff; /* White text */
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-card {
+    background-color: #1f2937; /* Dark grey background */
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 2fr auto; /* Name, Email, Button group */
+    gap: 20px; /* Increased gap between elements */
+    align-items: center;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.user-card.disabled {
+    background-color: #ff0000; /* Red background for disabled users */
+}
+
+.user-card .button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.user-card button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff; /* White text */
+    background: #1DA1F2; /* Twitter blue background */
+    transition: background-color 0.2s;
+}
+
+.user-card button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #555; /* Darker background for disabled button */
+}
+
+.user-card button:hover:not(:disabled) {
+    background: #0d8abc; /* Slightly darker blue on hover */
+}
+
+.star-icon {
+    position: absolute; /* Absolute position for the star icon */
+    top: 50%; /* Align the icon vertically in the middle of the card */
+    left: 0; /* Align the icon to the left of the card */
+    transform: translate(-50%, -50%); /* Adjust the exact position of the icon */
+    color: yellow; /* Set the star color to yellow */
+    /* ... other styles for size, etc. ... */
+}

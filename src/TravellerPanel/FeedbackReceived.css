@@ -1,0 +1,33 @@
+.feedbacks-received-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    /* background-color: #f9f9fa; */
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feedbacks-received-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.feedback-received-card {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-received-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.loading,
+.error-message {
+    text-align: center;
+    font-size: 1.2em;
+}

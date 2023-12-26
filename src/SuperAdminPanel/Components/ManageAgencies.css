@@ -1,0 +1,68 @@
+.manage-agencies {
+    display: flex;
+    min-height: 100vh;
+    background-color: #000;
+}
+
+.agencies-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: none;
+    background: #1f2937;
+    color: #fff;
+}
+
+.agency-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.agency-card {
+    background-color: #1f2937;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 2fr 3fr auto;
+    gap: 20px;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.agency-card.disabled {
+    background-color: #ff0000;
+}
+
+.agency-card .button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.agency-card button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    background: #1DA1F2;
+    transition: background-color 0.2s;
+}
+
+.agency-card button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #555;
+}
+
+.agency-card button:hover:not(:disabled) {
+    background: #0d8abc;
+}

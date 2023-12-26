@@ -131,7 +131,11 @@ const HotelPackage = () => {
                 <div className="booking-controls">
                     <div className="booking-section">
                         <label htmlFor="noOfPersons" className="booking-label">
-                            Number of Persons:
+                            <p
+                            style={{
+                                color: 'white',
+                            }}
+                            >Number of Persons:</p>
                             <input
                                 type="number"
                                 id="noOfPersons"
@@ -147,11 +151,21 @@ const HotelPackage = () => {
                     {isBookingSuccessful && (
                         <div className="confirmation-section">
                             <label htmlFor="confirmationCode" className="confirmation-label">
-                                Confirmation Code:
+                                
+                                <p
+                                    style={{
+                                        color: 'white',
+                                    }} 
+                                >Confirmation Code:</p>
                                 <input
                                     type="text"
                                     id="confirmationCode"
                                     className="confirmation-input"
+                                    style={{
+                                        width: '98%',
+                                        backgroundColor: 'white',
+                                        color: 'black'
+                                    }}
                                     value={confirmationCode}
                                     onChange={(e) => setConfirmationCode(e.target.value)}
                                 />

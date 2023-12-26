@@ -1,70 +1,90 @@
-// TravellerPanel/Pages/UserDashboard.jsx
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './UserDashboard.css'; // Make sure the CSS file is in the same directory
+import './UserDashboard.css';
+import Weather from './Weather';
 
 const UserDashboard = () => {
     const [packages, setPackages] = useState([]);
+    const [filteredPackages, setFilteredPackages] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [showComments, setShowComments] = useState({});
+    const [selectedCity, setSelectedCity] = useState('Islamabad'); // Default city
     const navigate = useNavigate();
+
+    const fetchPackages = async () => {
+        setIsLoading(true);
+        try {
+            const response = await fetch('http://localhost:3000/user/getAllPackages', {
+                method: 'GET',
+                credentials: 'include',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+
+            const data = await response.json();
+            setPackages(data.data);
+            setFilteredPackages(data.data); // Initialize filtered packages
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchPackages();
+    }, []);
+
+    useEffect(() => {
+        setFilteredPackages(
+            packages.filter(pkg =>
+                pkg.name.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+        );
+    }, [searchTerm, packages]);
+
+    const toggleComments = (packageId) => {
+        setShowComments(prevState => ({
+            ...prevState,
+            [packageId]: !prevState[packageId]
+        }));
+    };
+
 
     const handleLogout = async () => {
         try {
             await fetch('http://localhost:3000/user/logout', {
                 method: 'GET',
-                credentials: 'include', // Necessary to include the cookie
+                credentials: 'include',
             });
-            navigate('/user/login'); // Navigate to login after successful logout
+            navigate('/user/login');
         } catch (error) {
             console.error('Logout failed:', error);
-        }// Adjust according to your login route
+        }
     };
-
-    useEffect(() => {
-        const fetchPackages = async () => {
-            setIsLoading(true);
-            try {
-                const response = await fetch('http://localhost:3000/user/getAllPackages', {
-                    method: 'GET',
-                    credentials: 'include',
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-
-                const text = await response.text(); // First get the text
-
-                try {
-                    const data = JSON.parse(text); // Then parse it as JSON
-                    setPackages(data.data);
-                } catch (e) {
-                    // If JSON.parse() fails, it means it wasn't JSON (likely an HTML response)
-                    console.error("The response is not valid JSON:", text);
-                    setError("The server did not return a JSON response.");
-                }
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchPackages();
-    }, []);
 
     const handlePackageClick = (packageId) => {
         navigate(`/user/hotelofpackage/${packageId}`);
+    };
 
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
     };
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className="loading">Loading...</div>;
     }
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div className="error-message">{error}</div>;
     }
 
     return (
@@ -73,23 +93,59 @@ const UserDashboard = () => {
                 <Link to="/user/profile">Profile</Link>
                 <Link to="/user/bookings">Bookings</Link>
                 <Link to="/user/booking-history">Booking History</Link>
-                <Link to="/user/feedbacks">Feedbacks</Link>
-                <button onClick={handleLogout}>Logout</button>
+                <Link to="/user/feedbacksSent">Feedbacks</Link>
+                <button onClick={handleLogout}
+                    style={{
+                        width: "8%"
+                    }}
+                >Logout</button>
             </nav>
             <div className="dashboard-container">
                 <h1>Package Dashboard</h1>
+                <Weather city={selectedCity} />
+                <input
+                    type="text"
+                    placeholder="Search Packages"
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                    className="search-bar"
+                    style={{
+                        width: "98%"
+                    }}
+                />
                 <div className="packages-list">
-                    {packages.map((pkg) => (
-                        <div key={pkg._id} className="package-card" onClick={() => handlePackageClick(pkg._id)}>
+                    {filteredPackages.map(pkg => (
+                        <div key={pkg._id} className="package-card">
                             <img src={pkg.imageUrl} alt={pkg.name} className="package-image" />
-                            <div className="package-info">
+                            <div className="package-info" onClick={() => handlePackageClick(pkg._id)}>
                                 <h2>{pkg.name}</h2>
                                 <p>{pkg.description}</p>
                                 <p>City: {pkg.city}</p>
                                 <p>Start Date: {new Date(pkg.startDate).toLocaleDateString()}</p>
                                 <p>End Date: {new Date(pkg.endDate).toLocaleDateString()}</p>
                                 <p>Total Amount: ${pkg.totalAmount}</p>
-                                {/* Additional package details can be added here */}
+                            </div>
+                            <div className="rating-and-comments">
+                                <b
+                                    style={{
+                                        fontSize: "18px"
+                                    }}> <p
+                                        className='rating'>Average Rating: {pkg.avgRating || 'Not Rated'}</p></b>
+                                <button onClick={(e) => {
+                                    e.stopPropagation();
+                                    toggleComments(pkg._id);
+                                }}>
+                                    {showComments[pkg._id] ? 'Hide Comments' : 'Show Comments'}
+                                </button>
+                                {showComments[pkg._id] && (
+                                    <div className="comments-section">
+                                        {pkg.reviews.length > 0 ? (
+                                            pkg.reviews.map((review, index) => <p key={index}>{review}</p>)
+                                        ) : (
+                                            <p>No comments available</p>
+                                        )}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     ))}
@@ -97,6 +153,7 @@ const UserDashboard = () => {
             </div>
         </>
     );
+
 };
 
 export default UserDashboard;
