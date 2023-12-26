@@ -1,4 +1,4 @@
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router-dom";
 
 import TravelAgencyNavbar from "./TravelAgencyPanel/Components/TravelAgencyNavbar";
 import TravelAgencyHome from "./TravelAgencyPanel/Pages/TravelAgencyHome";
@@ -32,12 +32,39 @@ function App() {
     );
   };
 
+  const RootforPage = () => {
+    return (
+      <div>
+        <h1>Root for Page</h1>
+        <button>
+          <Link to="/admin/login">Super Admin Panel</Link>
+        </button>
+        <button>
+          <Link to="/travel-agency">
+            Travel Agency Panel
+          </Link>
+        </button>
+        <button>
+          <Link to="/user/login">
+            Traveller Panel
+          </Link>
+        </button>
+        <button>
+          <Link to="/hotel/login">
+            Hotel Owner Panel
+          </Link>
+        </button>
+      </div>
+    );
+  }
 
 
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<RootforPage />} />
+
           <Route path="/travel-agency/" element={<TravelAgencyOutlet />}>
             <Route index element={<TravelAgencyHome />} />
             <Route path="register" element={<TravelAgencySignup />} />
