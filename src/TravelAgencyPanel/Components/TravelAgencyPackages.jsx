@@ -113,7 +113,9 @@ const TravelAgencyPackages = () => {
           justifyContent="center"
           alignItems="center"
           minHeight="100vh"
+          flexDirection={"column"}
         >
+          <Typography variant="h5">Packages Offered</Typography>
           <Grid container spacing={2} margin={2}>
             {data.map(packageData => (
               <Grid item key={packageData._id} xs={12} sm={6} md={4}>

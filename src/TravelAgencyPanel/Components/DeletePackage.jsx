@@ -6,12 +6,10 @@ const DeletePackage = Package => {
   const mutation = useDeletePackage(Package.Package._id);
 
   useEffect(() => {
-    console.log("Delete");
     const funct = async () => {
-      console.log("Delete1");
       try {
         await mutation.mutateAsync();
-        console.log("Delete2");
+
         toast.success("Package Deleted Successfully", {
           position: "top-right",
           autoClose: 5000,

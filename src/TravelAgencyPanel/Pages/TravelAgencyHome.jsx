@@ -1,17 +1,18 @@
 //import React from "react";
 
-import { CssBaseline, Typography } from "@mui/material";
+import { CssBaseline, Typography, Box } from "@mui/material";
 import TravelAgencyPackages from "../Components/TravelAgencyPackages";
 
 const Home = () => {
   return (
     <>
       <CssBaseline />
-      <Typography variant="h3" align="center" sx={{ mt: 3 }}>
+      <Typography variant="h3" align="center" sx={{ m: 3 }}>
         Travel Agency Panel
       </Typography>
-      <Typography variant="h5">Packages Offered</Typography>
-      <hr />
+      <Box sx={{ mx: 10 }}>
+        <hr />
+      </Box>
       <TravelAgencyPackages />
     </>
   );
