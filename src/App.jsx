@@ -15,6 +15,7 @@ import CreatePackage from "./TravelAgencyPanel/Components/CreatePackage";
 import UpdatePackage from "./TravelAgencyPanel/Components/UpdatePackage";
 import DeletePackage from "./TravelAgencyPanel/Components/DeletePackage";
 import ViewBookings from "./TravelAgencyPanel/Components/ViewBookings";
+import Feedback from "./TravelAgencyPanel/Components/Feedback";
 
 function App() {
   const setAgencyId = useStore(state => state.setAgencyId);
@@ -53,6 +54,7 @@ function App() {
             <Route path="login" element={<TravelAgencyLogin />} />
             <Route path="create-package" element={<CreatePackage />} />
             <Route path="bookings" element={<ViewBookings />} />
+            <Route path="feedback" element={<Feedback />} />
             <Route
               path="edit-package"
               element={<UpdatePackage oldPackage={Package} />}

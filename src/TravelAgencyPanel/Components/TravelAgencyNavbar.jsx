@@ -24,6 +24,7 @@ const Navbar = () => {
   const pages = [
     { name: "Home", link: "/travel-agency" },
     { name: "Dashboard", link: "/travel-agency/bookings" },
+    { name: "Feedback", link: "/travel-agency/feedback" },
   ];
 
   const handleLogin = () => {
