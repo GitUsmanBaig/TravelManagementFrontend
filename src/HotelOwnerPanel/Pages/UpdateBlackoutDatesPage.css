@@ -1,0 +1,52 @@
+
+.update-blackout-dates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .update-blackout-dates h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .update-blackout-dates form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .update-blackout-dates form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .update-blackout-dates form textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 100px;
+  }
+  
+  .update-blackout-dates form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .update-blackout-dates form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .update-blackout-dates form button:hover {
+    background-color: #0056b3;
+  }
+  

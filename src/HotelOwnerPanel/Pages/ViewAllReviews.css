@@ -1,0 +1,10 @@
+.reviews-page {
+    margin: 20px;
+    padding: 20px;
+}
+
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

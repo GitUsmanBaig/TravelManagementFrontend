@@ -1,0 +1,31 @@
+.update-promotion-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .update-promotion-form input[type="text"],
+  .update-promotion-form input[type="number"],
+  .update-promotion-form input[type="date"],
+  .update-promotion-form textarea {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .update-promotion-form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .update-promotion-form button:hover {
+    background-color: #0056b3;
+  }
+  

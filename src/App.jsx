@@ -1,4 +1,6 @@
+import React from "react";
 import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import TravelAgencyNavbar from "./TravelAgencyPanel/Components/TravelAgencyNavbar";
 import TravelAgencyHome from "./TravelAgencyPanel/Pages/TravelAgencyHome";
@@ -19,19 +21,59 @@ import UserSignup from "./TravellerPanel/UserSignup";
 
 import AdminDashboard from "./SuperAdminPanel/Components/AdminDashboard";
 import AdminLogin from "./SuperAdminPanel/Components/Login";
-import AdminManageAgencies from "./SuperAdminPanel/Components/ManageAgencies";
-import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
+//import AdminManageAgencies from "./SuperAdminPanel/Components/ManageAgencies";
+//import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
 import ManageUsers from "./SuperAdminPanel/Components/ManageUsers";
 import AdminSignup from "./SuperAdminPanel/Components/Signup";
-<<<<<<< HEAD
 import AdminManagePackage from "./SuperAdminPanel/Components/ManagePackages";
 import AdminManageAgencies from "./SuperAdminPanel/Components/ManageAgencies";
 import AdminManageQueries from "./SuperAdminPanel/Components/ManageQueries";
 import AdminIndividualTravelAgency from "./SuperAdminPanel/Components/IndividualTravelAgency";
-=======
->>>>>>> 989391101cee1395c3eae867ee754250aab48b09
+
+
+import HotelOwnerLogin from "./HotelOwnerPanel/Pages/HotelOwnerLogin";
+import HotelOwnerSignup from "./HotelOwnerPanel/Pages/HotelOwnerSignup";
+import HotelOwnerDashboard from "./HotelOwnerPanel/Pages/HotelOwnerDashboard";
+import HotelDetailsPage from "./HotelOwnerPanel/Pages/HotelDetailsPage";
+import UpdateHotelPage from "./HotelOwnerPanel/Pages/UpdateHotelPage";
+import UpdateRoomPricing from "./HotelOwnerPanel/Pages/UpdateRoomPricing";
+import UpdateBlackoutDatesPage from "./HotelOwnerPanel/Pages/UpdateBlackoutDatesPage";
+import UpdateRoomAvailabilityPage from "./HotelOwnerPanel/Pages/UpdateRoomAvailabilityPage";
+import PromotionsListPage from "./HotelOwnerPanel/Pages/PromotionsListPage";
+import UpdatePromotionPage from "./HotelOwnerPanel/Pages/UpdatePromotionPage";
+import AddPromotionPage from "./HotelOwnerPanel/Pages/AddPromotionPage";
+import AddNewPropertyPage from "./HotelOwnerPanel/Pages/AddNewPropertyPage";
+import ViewAllReservationsPage from "./HotelOwnerPanel/Pages/ViewAllReservationsPage";
+import ViewReservationDetailsPage from "./HotelOwnerPanel/Pages/ViewReservationDetailsPage";
+import UpdateReservationStatusPage from "./HotelOwnerPanel/Pages/UpdateReservationStatusPage";
+import ViewAllReviews from "./HotelOwnerPanel/Pages/ViewAllReviews";
+import ReviewResponsePage from "./HotelOwnerPanel/Pages/ReviewResponsePage";
+import ViewAllInquiriesPage from "./HotelOwnerPanel/Pages/ViewAllInquiriesPage";
+
 
 function App() {
+
+  const handleLogin = (token) => {
+    // Save the token in localStorage or context
+    localStorage.setItem('token', token);
+  };
+  
+  function ProtectedRoute({ children }) {
+    const navigate = useNavigate();
+    
+    if (!localStorage.getItem('token')) {
+      // Redirect to the login page
+      return <Navigate to="/hotel/login" replace />;
+    }
+  
+    return children;
+  }
+
+
+
+
+
+
   const TravelAgencyOutlet = () => {
     return (
       <>
@@ -104,6 +146,30 @@ function App() {
           <Route path="/admin/agency/:agencyId" element={<AdminIndividualTravelAgency/>} />
 
           
+          <Route path="/hotel/login" element={<HotelOwnerLogin onLogin={handleLogin} />} />
+          <Route path="/hotel/signup" element={<HotelOwnerSignup />} />
+          <Route path="/hotel/dashboard" 
+                 element={
+                <ProtectedRoute>
+                  <HotelOwnerDashboard />
+                </ProtectedRoute>
+                } 
+          />
+          <Route path="/hotel/details/:id" element={<HotelDetailsPage />} />
+          <Route path="/hotel/update/:id" element={<UpdateHotelPage />} />
+          <Route path="/hotel/update-room-pricing/:id" element={<UpdateRoomPricing />} />
+          <Route path="/hotel/update-blackout-dates/:id" element={<UpdateBlackoutDatesPage />} />
+          <Route path="/hotel/update-availability/:id" element={<UpdateRoomAvailabilityPage />} />
+          <Route path="/hotel/:id/promotions" element={<PromotionsListPage />} />
+          <Route path="/hotel/:hotelId/promotions/update/:promotionId" element={<UpdatePromotionPage />} />
+          <Route path="/hotel/add-promotion/:id" element={<AddPromotionPage />} />
+          <Route path="/hotel/add-property" element={<AddNewPropertyPage />} />
+          <Route path="/hotel/reservations" element={<ViewAllReservationsPage />} />
+          <Route path="/reservations/details/:reservationId" element={<ViewReservationDetailsPage />} />
+          <Route path="/reservations/update-status/:reservationId" element={<UpdateReservationStatusPage />} />
+          <Route path="/hotel/reviews" element={<ViewAllReviews />} />
+          <Route path="/review/respond/:reviewId" element={<ReviewResponsePage />} />
+          <Route path="/hotel/:id/inquiries" element={<ViewAllInquiriesPage />} />
 
 
         </Routes>

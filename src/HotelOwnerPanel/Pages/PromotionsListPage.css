@@ -1,0 +1,24 @@
+.promotions-list {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .promotions-list h1 {
+    text-align: center;
+  }
+  .add-new-promotion-button {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-new-promotion-button:hover {
+    background-color: #45a049;
+  }
+  

@@ -1,0 +1,57 @@
+
+.update-room-pricing {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .update-room-pricing h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .update-room-pricing form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .update-room-pricing label {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .update-room-pricing input[type="text"],
+  .update-room-pricing input[type="number"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .update-room-pricing input[type="text"]:focus,
+  .update-room-pricing input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  }
+  
+  .update-room-pricing button {
+    padding: 0.7rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .update-room-pricing button:hover {
+    background-color: #0056b3;
+  }
+  
