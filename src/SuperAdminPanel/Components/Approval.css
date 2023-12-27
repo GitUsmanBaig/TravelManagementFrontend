@@ -1,0 +1,48 @@
+.approval-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.agency-card {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.agency-card h3 {
+    margin: 0;
+    color: #333;
+}
+
+.agency-card p {
+    color: #666;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.approve-button, .reject-button {
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.approve-button {
+    background-color: #28a745; /* Green */
+}
+
+.reject-button {
+    background-color: #dc3545; /* Red */
+}

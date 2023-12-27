@@ -44,10 +44,16 @@ const FeedbackSent = () => {
     if (error) return <div className="error-message">{error}</div>;
 
     return (
-        <div className="feedbacks-sent-container">
+        <div className="feedbacks-sent-container"
+            style={{
+                backgroundColor: "#100000"
+            }}
+        >
             <h1>Feedback Sent</h1>
             {feedbacksSent.map((feedback, index) => (
-                <div key={index} className="feedback-sent-card" onClick={() => handleFeedbackClick(feedback._id)}>
+                <div key={index} className="feedback-sent-card"
+
+                    onClick={() => handleFeedbackClick(feedback._id)}>
                     <p><strong>Feedback:</strong> {feedback.feedback}</p>
                 </div>
             ))}

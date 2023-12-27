@@ -39,7 +39,7 @@ const UserProfile = () => {
     if (isLoading) return <div className="loading">Loading...</div>;
     if (error) return <div className="error-message">{error}</div>;
 
-    return (
+    return (<>
         <div className="user-profile-container">
             <h1>User Profile</h1>
             {userProfile && (
@@ -55,6 +55,7 @@ const UserProfile = () => {
             )}
 
         </div>
+    </>
     );
 };
 

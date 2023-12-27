@@ -48,13 +48,21 @@ const UpdateCredentials = () => {
                 </label>
                 <label>
                     Preferences:
-                    <select multiple value={preferences} onChange={handlePreferenceChange}>
-                        {/* Replace these options with your actual preferences */}
+                    <select multiple value={preferences} onChange={handlePreferenceChange} className="preferences-select">
                         <option value="Adventure">Adventure</option>
                         <option value="Family">Family</option>
                         <option value="Honeymoon">Honeymoon</option>
-                        {/* ... more options ... */}
+                        <option value="Religious">Religious</option>
+                        <option value="Wildlife">Wildlife</option>
+                        <option value="Group">Group</option>
+                        <option value="Solo">Solo</option>
+                        <option value="Friends">Friends</option>
+                        <option value="Summer">Summer</option>
+                        <option value="Winter">Winter</option>
+                        <option value="Spring">Spring</option>
+                        <option value="Autumn">Autumn</option>
                     </select>
+
                 </label>
                 <label>
                     New Password:

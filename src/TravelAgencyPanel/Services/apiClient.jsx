@@ -6,14 +6,14 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(config => {
   const token = localStorage.getItem("AgencyToken");
-  const agencyId = localStorage.getItem("AgencyId");
+  // const agencyId = localStorage.getItem("AgencyId");
 
   if (token) {
     config.headers.token = token;
   }
-  if (agencyId) {
-    config.headers.userId = agencyId;
-  }
+  // if (agencyId) {
+  //   config.headers.agencyId = agencyId;
+  // }
   return config;
 });
 
