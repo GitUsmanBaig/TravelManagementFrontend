@@ -40,6 +40,7 @@ const IndividualTravelAgency = () => {
         textAlign: 'center',
     };
 
+
     const logoStyle = {
         width: '100px',
         height: '100px',
@@ -56,6 +57,33 @@ const IndividualTravelAgency = () => {
         margin: '5px 0',
     };
 
+
+
+    const feedbackSectionStyle = {
+        backgroundColor: '#10171e',
+        padding: '10px',
+        borderRadius: '8px',
+        margin: '20px 0',
+    };
+
+
+    const feedbackStyle = {
+        backgroundColor: '#192734', 
+        padding: '15px',
+        borderRadius: '8px',
+        margin: '20px 0',
+        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.25)',
+    };
+
+    const feedbackItemStyle = {
+        backgroundColor: '#10171e', 
+        color: '#fff',
+        padding: '10px',
+        borderRadius: '4px',
+        margin: '10px 0',
+        boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.25)',
+    };
+
     return (
         <div style={containerStyle}>
             <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginTop: '10px' }}>{agency.name}</h1>
@@ -63,6 +91,20 @@ const IndividualTravelAgency = () => {
             <p style={textStyle}>Email: {agency.email}</p>
             <p style={textStyle}>Helpline: {agency.helplineNumber}</p>
             <p style={textStyle}>Number of Packages: {agency.noOfPackages}</p>
+            <div style={feedbackSectionStyle}>
+            <h2 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1da1f2', marginBottom: '20px' }}>User Feedback</h2>
+            <div style={feedbackStyle}>
+                {agency.userFeedback && agency.userFeedback.length > 0 ? (
+                    agency.userFeedback.map(fb => (
+                        <div key={fb._id} style={feedbackItemStyle}>
+                            <p>{fb.feedback}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>No feedback available.</p>
+                )}
+            </div>
+            </div>
         </div>
     );
 };

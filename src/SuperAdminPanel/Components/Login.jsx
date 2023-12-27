@@ -136,11 +136,11 @@ const Login = () => {
                     width: '100%',
                     position: "relative",
                     left: "550px",
-                    top: "-330px",
+                    top: "-230px",
                     border : "none",
                 }}
             >
-                <Canvas camera={{ position: [0, 2, 4], far: 1000 }}>
+                <Canvas camera={{ position: [0, 2, 2], far: 1000 }}>
                     <ambientLight />
                     <Suspense fallback={null}>
                         <Computer />
