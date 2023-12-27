@@ -11,27 +11,26 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 // import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-
 import { CssBaseline } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
+import { useStore } from "../Hooks/useStore";
+
 const Navbar = () => {
   const navigate = useNavigate();
-
+  const { AgencyToken } = useStore();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const pages = [
-    { name: "Feed", link: "/feed" },
-    { name: "Blogs", link: "/blogs" },
-    { name: "Create Blog", link: "/blogs/new" },
+    { name: "Home", link: "/travel-agency" },
+    { name: "Dashboard", link: "/travel-agency/bookings" },
   ];
 
   const handleLogin = () => {
-    navigate("/login");
+    navigate("/travel-agency/login");
   };
   const handleSignup = () => {
-    navigate("/signup");
+    navigate("/travel-agency/register");
   };
 
   const handleOpenNavMenu = event => {
@@ -48,12 +47,12 @@ const Navbar = () => {
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+            {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
             <Typography
               variant="h6"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
+              // href="#app-bar-with-responsive-menu"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -64,7 +63,7 @@ const Navbar = () => {
                 textDecoration: "none",
               }}
             >
-              LOGO
+              TAMS
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
@@ -77,25 +76,64 @@ const Navbar = () => {
               >
                 <MenuIcon />
               </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                {pages.map((page, index) => (
+              {AgencyToken && (
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: "block", md: "none" },
+                  }}
+                >
+                  {pages.map((page, index) => (
+                    <MenuItem key={index} onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center">
+                        <Link
+                          to={page.link}
+                          style={{
+                            textDecoration: "none",
+                            color: "inherit",
+                          }}
+                        >
+                          {page.name}
+                        </Link>
+                      </Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              )}
+            </Box>
+            {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              TAMS
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              {AgencyToken &&
+                pages.map((page, index) => (
                   <MenuItem key={index} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">
                       <Link
@@ -110,79 +148,13 @@ const Navbar = () => {
                     </Typography>
                   </MenuItem>
                 ))}
-              </Menu>
             </Box>
-            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: "flex", md: "none" },
-                flexGrow: 1,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              LOGO
-            </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {pages.map((page, index) => (
-                <MenuItem key={index} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
-                    <Link
-                      to={page.link}
-                      style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                      }}
-                    >
-                      {page.name}
-                    </Link>
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Box>
-
-            {/* <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settingsLoggedIn.map((setting, index) => (
-                  <MenuItem key={index} onClick={setting.function}>
-                    <Typography textAlign="center">{setting.name}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box> */}
-
-            <Box>
-              <Button onClick={handleLogin}>Login</Button>
-              <Button onClick={handleSignup}>Signup</Button>
-            </Box>
+            {!AgencyToken && (
+              <Box>
+                <Button onClick={handleLogin}>Login</Button>
+                <Button onClick={handleSignup}>Signup</Button>
+              </Box>
+            )}
           </Toolbar>
         </Container>
       </AppBar>
